@@ -14,7 +14,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBy('id','desc')->get();
         return view('comic.index', ["comics" => $comics ]);
     }
 
@@ -38,7 +38,12 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+
+        $new_comic = new Comic();
+        $new_comic->fill($data);
+        $new_comic->save();
+
+        return redirect()->route('comic.index');
     }
 
     /**
