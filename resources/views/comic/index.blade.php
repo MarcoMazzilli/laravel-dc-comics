@@ -27,9 +27,20 @@
                 {{-- Buttons --}}
                 <td>
                     <a href="{{ route('comic.show', $comic) }}" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></a>
-                    <a href="{{ route('comic.show', $comic) }}" class="btn btn-danger"><i class="fa-solid fa-pencil"></i></a>
-                    <a href="{{ route('comic.show', $comic) }}" class="btn btn-warning text-white"><i class="fa-solid fa-trash"></i></a>
-                </td>
+
+                    <a href="{{ route('comic.edit', $comic) }}" class="btn btn-warning text-white"><i class="fa-solid fa-pencil"></i></a>
+
+                    <form
+                        class="d-inline"
+                        action="{{ route('comic.destroy', $comic) }}"
+                        method="POST"
+                    >
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger text-white"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+
+                    </td>
             </tr>
 
             @endforeach
