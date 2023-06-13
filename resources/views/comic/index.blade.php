@@ -1,6 +1,9 @@
 @extends('layout.main')
 
 @section('content')
+    <div class="container-fluid p-3">
+        <a href="{{ route('comic.create')}}" class="btn btn-success">Create New Product <i class="fa-solid fa-plus"></i></a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -21,7 +24,12 @@
                 <td>{{ $comic['series'] }}</td>
                 <td>{{ $comic['sale_date'] }}</td>
                 <td>{{ $comic['price'] }}</td>
-                <td><a href="{{ route('comic.show', $comic) }}" class="btn btn-primary">Dettagli</a></td>
+                {{-- Buttons --}}
+                <td>
+                    <a href="{{ route('comic.show', $comic) }}" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="{{ route('comic.show', $comic) }}" class="btn btn-danger"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="{{ route('comic.show', $comic) }}" class="btn btn-warning text-white"><i class="fa-solid fa-trash"></i></a>
+                </td>
             </tr>
 
             @endforeach
