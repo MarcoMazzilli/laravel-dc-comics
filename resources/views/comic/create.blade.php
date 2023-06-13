@@ -10,9 +10,21 @@
 
         <h1 class="my-4">Inserisci un nuovo Fumetto</h1>
 
+        @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                <p> Errore di tipo ->{{ $error }}</p>
+            @endforeach
+        </div>
+        @endif
+
+
         <div class="mb-3">
             <label for="title" class="form-label">Titolo fumetto </label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Titolo">
+            <input type="text" list="title_list" class="form-control" id="title" name="title" placeholder="Titolo">
+            <datalist id="title_list">
+                <option value="titolo test">Test</option>
+            </datalist>
         </div>
 
 
@@ -33,7 +45,7 @@
 
         <div class="mb-3">
             <label for="sale_date" class="form-label">Data di uscita </label>
-            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="YYYY - MM - DD">
+            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="YYYY/MM/DD">
         </div>
 
         <div class="mb-3">
