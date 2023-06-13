@@ -44,7 +44,7 @@ class ComicController extends Controller
             'thumb' => 'required',
             'price' => 'required',
             'series' => 'required',
-            'sale_date' => 'required|date_format:Y/m/d',
+            'sale_date' => 'required|date_format:Y-m-d',
             'type' => 'required',
             'artists' => 'required',
             'writers' => 'required'
@@ -57,7 +57,7 @@ class ComicController extends Controller
             'price.required' => 'Il prezzo è un campo obbligatiorio',
             'series.required' => 'La serie è un campo obbligatiorio',
             'sale_date.required' => 'La data è un campo obbligatorio',
-            'sale_date.date_format' => 'Inserire la data in formato yyyy/mm/dd',
+            'sale_date.date_format' => 'Inserire la data in formato yyyy-mm-dd',
             'artists.required' => 'L\'artista è un campo obbligatiorio',
             'writers.required' => 'Lo scrittore è un campo obbligatiorio',
         ]);
